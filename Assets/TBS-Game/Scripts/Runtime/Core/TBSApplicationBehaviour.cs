@@ -3,6 +3,7 @@ using UnityEngine;
 public class TBSApplicationBehaviour : MonoBehaviour
 {
     [SerializeField] private TBSBoostrapAsset _boostrapAsset;
+    [SerializeField] private TBSLinksBehaviour _linksBehaviour;
 
     private TBSBoostrap _boostrap;
 
@@ -13,7 +14,7 @@ public class TBSApplicationBehaviour : MonoBehaviour
             return;
         }
 
-        _boostrap = _boostrapAsset.MakeBoostrap();
+        _boostrap = _boostrapAsset.MakeBoostrap(_linksBehaviour);
         if (_boostrap == null)
         {
             return;

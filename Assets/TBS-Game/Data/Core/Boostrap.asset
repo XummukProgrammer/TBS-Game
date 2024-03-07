@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0530be00e8abcba43ad3f9385c33b4af, type: 3}
   m_Name: Boostrap
   m_EditorClassIdentifier: 
+  _settingsData: {fileID: 11400000, guid: 494ccfec45993bd4381dbb86cc22f425, type: 2}
