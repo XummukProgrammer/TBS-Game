@@ -35,11 +35,30 @@ public static class TBSMap
         }
     }
 
+    public static void InitHexagons()
+    {
+        for (int y = 0; y < _hexagons.Count; y++)
+        {
+            for (int x = 0; x < _hexagons[y].Count; x++)
+            {
+                var top = GetHexagonByCellPosition(x, y - 1);
+                var down = GetHexagonByCellPosition(x, y + 1);
+                var leftUpper = GetHexagonByCellPosition(x - 1, y);
+                var leftLower = GetHexagonByCellPosition(x - 1, y + 1);
+                var rightUpper = GetHexagonByCellPosition(x + 1, y);
+                var rightLower = GetHexagonByCellPosition(x + 1, y + 1);
+                _hexagons[y][x].SetAroundHexagons(new TBSAroundHexagons(top, down, leftUpper, leftLower, rightUpper, rightLower));
+
+                Debug.Log($"[InitHexagons] The hexagon is initialized (ID: {_hexagons[y][x].ID}, AroundHexagons: {_hexagons[y][x].AroundHexagons.GetDebug()}).");
+            }
+        }
+    }
+
     public static TBSHexagon GetHexagonByCellPosition(int cellX, int cellY)
     {
-        if (cellY < _hexagons.Count)
+        if (cellY >= 0 && cellY < _hexagons.Count)
         {
-            if (cellX < _hexagons[cellY].Count)
+            if (cellX >= 0 && cellX < _hexagons[cellY].Count)
             {
                 return _hexagons[cellY][cellX];
             }
@@ -104,7 +123,7 @@ public static class TBSMap
         float physicsX = hexagonSize * cellX - ((cellX == 0) ? 0 : (cellX * hexagonXOffset));
         float physicsZ = hexagonSize * cellY * (-1) + (isEvenX ? hexagonYOffset : 0);
 
-        newHexagonBehaviour.Init(physicsX, physicsZ);
+        newHexagonBehaviour.Init(id, physicsX, physicsZ);
 
         var newHexagon = new TBSHexagon(id, newHexagonBehaviour, newHexagonData);
         Debug.Log($"[CreateHexagon] A new Hexagon has been added (ID: {id}, CellX: {cellX}, CellY: {cellY}, PhysicsX: {physicsX}, PhysicsZ: {physicsZ}).");

@@ -32,4 +32,29 @@ public class TBSApplicationBehaviour : MonoBehaviour
 
         _boostrap.Destroy();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Ray MyRay;
+            RaycastHit hit;
+            MyRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(MyRay, out hit, 100))
+            {
+                if (hit.collider.TryGetComponent(out TBSHexagonBehaviour hexagonBehaviour))
+                {
+                    var hexagon = TBSMap.GetHexagonByID(hexagonBehaviour.ID);
+                    if (hexagon != null)
+                    {
+                        var around = hexagon.AroundHexagons.Around;
+                        foreach (var hex in around)
+                        {
+                            hex.SetSelect(true);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

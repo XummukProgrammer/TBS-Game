@@ -13,6 +13,7 @@ public class TBSBoostrap
     {
         TBSMap.Init(LinksBehaviour.MapBehaviour, SettingsData.MapData);
         TBSMap.GenerateHexagons();
+        TBSMap.InitHexagons();
     }
 
     public virtual void Destroy() 
