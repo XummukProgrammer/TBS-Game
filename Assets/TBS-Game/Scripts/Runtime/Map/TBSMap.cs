@@ -41,13 +41,15 @@ public static class TBSMap
         {
             for (int x = 0; x < _hexagons[y].Count; x++)
             {
+                bool isEvenX = ((float)x % 2) == 0;
+
                 var top = GetHexagonByCellPosition(x, y - 1);
                 var down = GetHexagonByCellPosition(x, y + 1);
-                var leftUpper = GetHexagonByCellPosition(x - 1, y);
-                var leftLower = GetHexagonByCellPosition(x - 1, y + 1);
-                var rightUpper = GetHexagonByCellPosition(x + 1, y);
-                var rightLower = GetHexagonByCellPosition(x + 1, y + 1);
-                _hexagons[y][x].SetAroundHexagons(new TBSAroundHexagons(top, down, leftUpper, leftLower, rightUpper, rightLower));
+                var leftUpper = GetHexagonByCellPosition(x - 1, y - (isEvenX ? 1 : 0));
+                var leftLower = GetHexagonByCellPosition(x - 1, y + (isEvenX ? 0 : 1));
+                var rightUpper = GetHexagonByCellPosition(x + 1, y - (isEvenX ? 1 : 0));
+                var rightLower = GetHexagonByCellPosition(x + 1, y + (isEvenX ? 0 : 1));
+                _hexagons[y][x].SetAroundHexagons(new TBSAroundHexagons(top, down, leftUpper, leftLower, rightUpper, rightLower, isEvenX));
 
                 Debug.Log($"[InitHexagons] The hexagon is initialized (ID: {_hexagons[y][x].ID}, AroundHexagons: {_hexagons[y][x].AroundHexagons.GetDebug()}).");
             }

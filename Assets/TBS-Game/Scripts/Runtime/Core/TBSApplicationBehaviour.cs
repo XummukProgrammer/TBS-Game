@@ -47,7 +47,7 @@ public class TBSApplicationBehaviour : MonoBehaviour
                     var hexagon = TBSMap.GetHexagonByID(hexagonBehaviour.ID);
                     if (hexagon != null)
                     {
-                        var around = hexagon.AroundHexagons.Around;
+                        var around = hexagon.AroundHexagons.Horizontal;
                         foreach (var hex in around)
                         {
                             hex.SetSelect(true);

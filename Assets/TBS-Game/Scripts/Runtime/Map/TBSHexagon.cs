@@ -8,6 +8,7 @@ public class TBSAroundHexagons
     public TBSHexagon LeftLower { get; private set; }
     public TBSHexagon RightUpper { get; private set; }
     public TBSHexagon RightLower { get; private set; }
+    public bool IsEven { get; private set; }
 
     public List<TBSHexagon> Around => GetAround();
     public List<TBSHexagon> Horizontal => GetHorizontal();
@@ -15,7 +16,7 @@ public class TBSAroundHexagons
     public List<TBSHexagon> LeftDiagonal => GetLeftDiagonal();
     public List<TBSHexagon> RightDiagonal => GetRightDiagonal();
 
-    public TBSAroundHexagons(TBSHexagon top, TBSHexagon down, TBSHexagon leftUpper, TBSHexagon leftLower, TBSHexagon rightUpper, TBSHexagon rightLower)
+    public TBSAroundHexagons(TBSHexagon top, TBSHexagon down, TBSHexagon leftUpper, TBSHexagon leftLower, TBSHexagon rightUpper, TBSHexagon rightLower, bool isEven)
     {
         Top = top;
         Down = down;
@@ -23,6 +24,7 @@ public class TBSAroundHexagons
         LeftLower = leftLower;
         RightUpper = rightUpper;
         RightLower = rightLower;
+        IsEven = isEven;
     }
 
     public TBSHexagon GetHexagonByXY(float x, float y)
@@ -124,7 +126,23 @@ public class TBSAroundHexagons
 
     private List<TBSHexagon> GetHorizontal()
     {
-        return GetLineByXY(-1, -1, 1, 1);
+        var list = new List<TBSHexagon>();
+
+        var hexagon = IsEven ? RightUpper : RightLower;
+        while (hexagon != null)
+        {
+            list.Add(hexagon);
+            hexagon = hexagon.AroundHexagons.IsEven ? hexagon.AroundHexagons.RightUpper : hexagon.AroundHexagons.RightLower;
+        }
+
+        hexagon = IsEven ? LeftUpper : LeftLower;
+        while (hexagon != null)
+        {
+            list.Add(hexagon);
+            hexagon = hexagon.AroundHexagons.IsEven ? hexagon.AroundHexagons.LeftUpper : hexagon.AroundHexagons.LeftLower;
+        }
+
+        return list;
     }
 
     private List<TBSHexagon> GetVertical()
