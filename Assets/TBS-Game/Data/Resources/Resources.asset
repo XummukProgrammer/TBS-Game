@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb11281e9527a04b9dafaf3ac990d6c, type: 3}
-  m_Name: Settings
+  m_Script: {fileID: 11500000, guid: a185088ba84cb254b84aea1fa21840d6, type: 3}
+  m_Name: Resources
   m_EditorClassIdentifier: 
-  _mapData: {fileID: 11400000, guid: 4cd05240a27ecf648a593ec97f3f8776, type: 2}
-  _resourcesData: {fileID: 11400000, guid: ac195764d71b0d8438a1d33862e2bc5a, type: 2}
+  _resources:
+  - {fileID: 11400000, guid: 4b07317b36476c5409ee206df3d766b1, type: 2}
+  - {fileID: 11400000, guid: a6967e327a04fb04692f3ecf07f93de3, type: 2}

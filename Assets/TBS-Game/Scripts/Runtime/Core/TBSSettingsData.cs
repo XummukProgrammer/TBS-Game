@@ -4,6 +4,8 @@ using UnityEngine;
 public class TBSSettingsData : ScriptableObject
 {
     [SerializeField] private TBSMapData _mapData;
+    [SerializeField] private TBSResourcesData _resourcesData;
 
     public TBSMapData MapData => _mapData;
+    public TBSResourcesData ResourcesData => _resourcesData;
 }

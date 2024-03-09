@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb11281e9527a04b9dafaf3ac990d6c, type: 3}
-  m_Name: Settings
+  m_Script: {fileID: 11500000, guid: ad679b6d6f2b9c8418df037c2a89522c, type: 3}
+  m_Name: Water
   m_EditorClassIdentifier: 
-  _mapData: {fileID: 11400000, guid: 4cd05240a27ecf648a593ec97f3f8776, type: 2}
-  _resourcesData: {fileID: 11400000, guid: ac195764d71b0d8438a1d33862e2bc5a, type: 2}
+  _id: 2
+  _prefab: {fileID: 0}
+  _limiterAsset: {fileID: 11400000, guid: ffcd49ac35d39744f928883d78573a89, type: 2}

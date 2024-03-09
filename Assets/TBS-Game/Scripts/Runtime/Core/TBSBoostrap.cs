@@ -14,6 +14,8 @@ public class TBSBoostrap
         TBSMap.Init(LinksBehaviour.MapBehaviour, SettingsData.MapData);
         TBSMap.GenerateHexagons();
         TBSMap.InitHexagons();
+
+        TBSCountry.Resources.InitResources(SettingsData.ResourcesData);
     }
 
     public virtual void Destroy() 
