@@ -16,9 +16,12 @@ public class TBSBoostrap
         TBSMap.InitHexagons();
 
         TBSCountry.Resources.InitResources(SettingsData.ResourcesData);
-        TBSTimer.Init(SettingsData.TimerData);
+        TBSCountry.BuildingManager.Init(SettingsData.BuildingManagerData);
 
-        TBSResourcesChangers.AddChanger(new TBSResourceChanger(TBSResourceID.Food, 1, TBSResourceChangeReason.Give));
+        TBSCountry.BuildingManager.AddBuilding(TBSCountry.BuildingManager.MakeBuilding(TBSBuildingID.Farm));
+        TBSCountry.BuildingManager.AddBuilding(TBSCountry.BuildingManager.MakeBuilding(TBSBuildingID.WaterTower));
+
+        TBSTimer.Init(SettingsData.TimerData);
     }
 
     public virtual void Destroy() 
