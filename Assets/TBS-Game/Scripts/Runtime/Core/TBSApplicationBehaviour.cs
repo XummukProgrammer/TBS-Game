@@ -35,7 +35,7 @@ public class TBSApplicationBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        /*if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Ray MyRay;
             RaycastHit hit;
@@ -55,6 +55,8 @@ public class TBSApplicationBehaviour : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
+
+        TBSTimer.OnUpdate();
     }
 }

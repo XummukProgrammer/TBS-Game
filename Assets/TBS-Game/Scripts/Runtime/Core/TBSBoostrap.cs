@@ -16,6 +16,9 @@ public class TBSBoostrap
         TBSMap.InitHexagons();
 
         TBSCountry.Resources.InitResources(SettingsData.ResourcesData);
+        TBSTimer.Init(SettingsData.TimerData);
+
+        TBSResourcesChangers.AddChanger(new TBSResourceChanger(TBSResourceID.Food, 1, TBSResourceChangeReason.Give));
     }
 
     public virtual void Destroy() 

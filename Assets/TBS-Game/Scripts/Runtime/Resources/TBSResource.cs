@@ -18,6 +18,20 @@ public class TBSResource
         }
     }
 
+    public void ChangeValue(int value, TBSResourceChangeReason reason)
+    {
+        switch (reason)
+        {
+            case TBSResourceChangeReason.Give:
+                GiveValue(value);
+                break;
+
+            case TBSResourceChangeReason.Take:
+                TakeValue(value);
+                break;
+        }
+    }
+
     public void GiveValue(int value)
     {
         int prevValue = Value;
