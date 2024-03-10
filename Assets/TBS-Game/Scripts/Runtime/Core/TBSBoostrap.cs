@@ -15,11 +15,7 @@ public class TBSBoostrap
         TBSMap.GenerateHexagons();
         TBSMap.InitHexagons();
 
-        TBSCountry.Resources.InitResources(SettingsData.ResourcesData);
-        TBSCountry.BuildingManager.Init(SettingsData.BuildingManagerData);
-
-        TBSCountry.BuildingManager.AddBuilding(TBSCountry.BuildingManager.MakeBuilding(TBSBuildingID.Farm));
-        TBSCountry.BuildingManager.AddBuilding(TBSCountry.BuildingManager.MakeBuilding(TBSBuildingID.WaterTower));
+        TBSCountries.Init(SettingsData);
 
         TBSTimer.Init(SettingsData.TimerData);
     }

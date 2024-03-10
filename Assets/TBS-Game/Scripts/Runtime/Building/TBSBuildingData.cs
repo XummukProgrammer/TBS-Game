@@ -8,11 +8,11 @@ public class TBSBuildingData : ScriptableObject
 
     public TBSBuildingID ID => _id;
 
-    public TBSResourceChanger MakeResourceChanger()
+    public TBSResourceChanger MakeResourceChanger(TBSResources resources)
     {
         if (_resourceChangerAsset != null)
         {
-            return _resourceChangerAsset.MakeChanger();
+            return _resourceChangerAsset.MakeChanger(resources);
         }
         return null;
     }

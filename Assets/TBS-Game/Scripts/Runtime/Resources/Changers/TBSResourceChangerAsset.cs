@@ -7,8 +7,8 @@ public class TBSResourceChangerAsset : ScriptableObject
     [SerializeField] private int _value;
     [SerializeField] private TBSResourceChangeReason _reason;
 
-    public TBSResourceChanger MakeChanger()
+    public TBSResourceChanger MakeChanger(TBSResources resources)
     {
-        return new TBSResourceChanger(_id, _value, _reason);
+        return new TBSResourceChanger(resources, _id, _value, _reason);
     }    
 }

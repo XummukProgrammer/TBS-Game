@@ -6,9 +6,9 @@ public class TBSResourceChanger
     private int _value;
     private TBSResourceChangeReason _reason;
 
-    public TBSResourceChanger(TBSResourceID id, int value, TBSResourceChangeReason reason)
+    public TBSResourceChanger(TBSResources resources, TBSResourceID id, int value, TBSResourceChangeReason reason)
     {
-        _resource = TBSCountry.Resources.GetResource(id);
+        _resource = resources.GetResource(id);
         _value = value;
         _reason = reason;
     }

@@ -21,12 +21,12 @@ public class TBSBuildingManager
         building.Destroy();
     }
 
-    public TBSBuilding MakeBuilding(TBSBuildingID id)
+    public TBSBuilding MakeBuilding(TBSResources resources, TBSBuildingID id)
     {
         var buildingData = _data.GetBuildingData(id);
         if (buildingData != null)
         {
-            return new TBSBuilding(buildingData.MakeResourceChanger());
+            return new TBSBuilding(buildingData.MakeResourceChanger(resources));
         }
         return null;
     }
