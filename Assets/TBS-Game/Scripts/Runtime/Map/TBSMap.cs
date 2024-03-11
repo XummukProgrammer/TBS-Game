@@ -7,6 +7,8 @@ public static class TBSMap
     private static TBSMapData _data;
     private static List<List<TBSHexagon>> _hexagons = new(); // TODO: use the list of the hexagons?
 
+    public static List<TBSHexagon> Hexagons => GetHexagons();
+
     public static void Init(TBSMapBehaviour behaviour, TBSMapData data)
     {
         _behaviour = behaviour;
@@ -161,5 +163,20 @@ public static class TBSMap
         }
 
         return _data.DefaultHexagon;
+    }
+
+    private static List<TBSHexagon> GetHexagons()
+    {
+        var list = new List<TBSHexagon>();
+
+        foreach (var yHexagons in _hexagons)
+        {
+            foreach (var xHexagon in yHexagons)
+            {
+                list.Add(xHexagon);
+            }
+        }
+
+        return list;
     }
 }

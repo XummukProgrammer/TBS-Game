@@ -10,24 +10,33 @@ public class TBSBuildingManager
         _data = data;
     }
 
-    public void AddBuilding(TBSBuilding building)
-    {
-        _building.Add(building);
-    }
-
-    public void RemoveBuilding(TBSBuilding building)
-    {
-        _building.Remove(building);
-        building.Destroy();
-    }
-
-    public TBSBuilding MakeBuilding(TBSResources resources, TBSBuildingID id)
+    public void AddBuilding(TBSBuildingID id)
     {
         var buildingData = _data.GetBuildingData(id);
         if (buildingData != null)
         {
-            return new TBSBuilding(buildingData.MakeResourceChanger(resources));
+            var newBuilding = new TBSBuilding(id, buildingData.MakeResourceChanger());
+            _building.Add(newBuilding);
         }
-        return null;
+    }
+
+    public void RemoveBuilding(TBSBuildingID id)
+    {
+        foreach (var building in _building)
+        {
+            if (building.ID == id)
+            {
+                building.Destroy();
+                _building.Remove(building);
+            }
+        }
+    }
+
+    public void UpdateResources(TBSResources resources)
+    {
+        foreach (var building in _building)
+        {
+            building.UpdateChangerResources(resources);
+        }
     }
 }
