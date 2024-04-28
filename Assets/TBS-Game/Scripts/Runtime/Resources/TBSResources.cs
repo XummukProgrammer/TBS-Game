@@ -5,8 +5,12 @@ public class TBSResources
 {
     private List<TBSResource> _resources = new();
 
-    public void InitResources(TBSResourcesData data)
+    public string Owner { get; private set; }
+
+    public void InitResources(TBSResourcesData data, string owner)
     {
+        Owner = owner;
+
         var resources = data.Resources;
         while (resources.MoveNext())
         {
@@ -14,7 +18,7 @@ public class TBSResources
             var resource = new TBSResource(resourceData, 0);
             _resources.Add(resource);
 
-            Debug.Log($"Added resource: {resource.GetDebug()}");
+            Debug.Log($"Added resource: {resource.GetDebug()}, Owner: {Owner}");
         }
     }
 

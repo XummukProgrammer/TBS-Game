@@ -17,3 +17,4 @@ MonoBehaviour:
   _timerData: {fileID: 11400000, guid: c1324a864bd60a34b9f2e71fd2744c80, type: 2}
   _buildingManagerData: {fileID: 11400000, guid: 9a6a17400b58f3040988fbbe30bc74ab, type: 2}
   _countriesData: {fileID: 11400000, guid: 50011d350e168784ca8d7a07a61b5db7, type: 2}
+  _regionsData: {fileID: 11400000, guid: 185cf85a7491cd24e917b07f1ef3de8f, type: 2}

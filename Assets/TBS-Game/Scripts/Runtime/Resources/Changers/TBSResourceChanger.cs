@@ -6,6 +6,7 @@ public class TBSResourceChanger
     private TBSResource _resource;
     private int _value;
     private TBSResourceChangeReason _reason;
+    private TBSResources _resources;
 
     public TBSResourceChanger(TBSResourceID id, int value, TBSResourceChangeReason reason)
     {
@@ -26,7 +27,8 @@ public class TBSResourceChanger
 
     public void UpdateResources(TBSResources resources)
     {
-        _resource = resources.GetResource(_id);
+        _resources = resources;
+        _resource = _resources.GetResource(_id);
     }
 
     private void OnDayChanged(int day)
@@ -35,7 +37,7 @@ public class TBSResourceChanger
         {
             _resource.ChangeValue(_value, _reason);
 
-            Debug.Log($"Change resource: {_resource.GetDebug()}");
+            Debug.Log($"Change resource: {_resource.GetDebug()}, Owner: {_resources.Owner}");
         }
     }
 }

@@ -16,13 +16,15 @@ public class TBSBoostrap
         TBSMap.InitHexagons();
 
         TBSProvincies.Init(SettingsData.BuildingManagerData);
+        TBSRegions.Init(SettingsData.RegionsData);
 
         TBSProvincies.GetProvince(0).BuildingManager.AddBuilding(TBSBuildingID.Farm);
         TBSProvincies.GetProvince(1).BuildingManager.AddBuilding(TBSBuildingID.WaterTower);
 
-        TBSCountries.Init(SettingsData);
+        TBSProvincies.GetProvince(2).BuildingManager.AddBuilding(TBSBuildingID.Farm);
+        TBSProvincies.GetProvince(3).BuildingManager.AddBuilding(TBSBuildingID.WaterTower);
 
-        TBSProvincies.GetProvince(0).BuildingManager.UpdateResources(TBSCountries.GetCountry(TBSCountryID.Russian).Resources);
+        TBSCountries.Init(SettingsData);
 
         TBSTimer.Init(SettingsData.TimerData);
     }

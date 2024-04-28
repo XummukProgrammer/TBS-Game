@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3cbceadcbf52594da9c1af63c17d544, type: 3}
-  m_Name: Germany
+  m_Script: {fileID: 11500000, guid: 3cfd5e74d995db146a848521e179fb99, type: 3}
+  m_Name: Regions
   m_EditorClassIdentifier: 
-  _id: 2
+  _regions:
+  - {fileID: 11400000, guid: 697e53cc98264ca43b6c358968d42b2c, type: 2}
+  - {fileID: 11400000, guid: a5f32957d1994644db6810c16732f20b, type: 2}

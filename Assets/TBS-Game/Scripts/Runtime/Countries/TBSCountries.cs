@@ -9,7 +9,10 @@ public static class TBSCountries
         var countries = settingsData.CountriesData.Countries;
         while (countries.MoveNext())
         {
-            _countries.Add(new TBSCountry(countries.Current, settingsData));
+            var newCountry = new TBSCountry(countries.Current, settingsData);
+            newCountry.UpdateRegions();
+
+            _countries.Add(newCountry);
         }
     }
 
