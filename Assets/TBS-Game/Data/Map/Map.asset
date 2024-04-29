@@ -15,9 +15,5 @@ MonoBehaviour:
   _width: 32
   _height: 32
   _hexagonSize: 1
-  _hexagonXOffset: 0.25
+  _hexagonXOffset: 0.135
   _hexagonYOffset: 0.5
-  _hexagons:
-  - {fileID: 11400000, guid: dfab42662df7ece4d8d8f90459a4bd04, type: 2}
-  - {fileID: 11400000, guid: 1c19d3be93d2d6440a83ae28e452c5dd, type: 2}
-  _defaultHexagon: {fileID: 11400000, guid: a28990d5d4ea15c4fa1b4704fa811ce4, type: 2}
