@@ -15,3 +15,11 @@ MonoBehaviour:
   _provincies:
   - {fileID: 11400000, guid: ee4838597bcf48c4a96ff630ff3dda2c, type: 2}
   - {fileID: 11400000, guid: 4d67b6704587cbe48ac10f3c2291c3aa, type: 2}
+  _defaultProvince: {fileID: 11400000, guid: c76f6dacd3903f6489db1c3c76484fa8, type: 2}
+  _visuals:
+  - {fileID: 11400000, guid: 2530accdef9e29341bac61d2d0c77b48, type: 2}
+  - {fileID: 11400000, guid: d3fc463262ae88c42881b68d0c249fca, type: 2}
+  - {fileID: 11400000, guid: 1476ca8017a4fed44a68569066343b49, type: 2}
+  - {fileID: 11400000, guid: 4113e8e54b84e974baf3e98f50f3ae93, type: 2}
+  - {fileID: 11400000, guid: 49c25a65fddd74e4a9576534d62837eb, type: 2}
+  - {fileID: 11400000, guid: e596c45268d6cae43b83b7141b02c245, type: 2}

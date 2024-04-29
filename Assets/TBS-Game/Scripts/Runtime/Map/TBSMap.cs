@@ -37,6 +37,26 @@ public static class TBSMap
         }
     }
 
+    public static void MakeHexagonsVisual(TBSProvinciesData provinciesData)
+    {
+        for (int y = 0; y < _hexagons.Count; y++)
+        {
+            for (int x = 0; x < _hexagons[y].Count; x++)
+            {
+                var province = TBSProvincies.GetProvince(_hexagons[y][x].ID);
+                if (province != null)
+                {
+                    var visual = provinciesData.GetVisual(province.Type);
+                    if (visual != null)
+                    {
+                        _hexagons[y][x].Instantiate(visual.Prefab, _behaviour);
+                        Debug.Log($"Make a visual for a hexagon: ID: {province.ID}, Type: {province.Type}");
+                    }
+                }
+            }
+        }
+    }
+
     public static void InitHexagons()
     {
         for (int y = 0; y < _hexagons.Count; y++)
@@ -112,24 +132,10 @@ public static class TBSMap
 
     private static void CreateHexagon(int id, int cellX, int cellY, bool isEvenX, int hexagonSize, float hexagonXOffset, float hexagonYOffset)
     {
-        var newHexagonData = GetHexagonData(id);
-        if (newHexagonData == null)
-        {
-            return;
-        }
-
-        var newHexagonBehaviour = _behaviour.MakeHexagon(newHexagonData.Prefab);
-        if (newHexagonBehaviour == null)
-        {
-            return;
-        }
-
         float physicsX = hexagonSize * cellX - ((cellX == 0) ? 0 : (cellX * hexagonXOffset));
         float physicsZ = hexagonSize * cellY * (-1) + (isEvenX ? hexagonYOffset : 0);
 
-        newHexagonBehaviour.Init(id, physicsX, physicsZ);
-
-        var newHexagon = new TBSHexagon(id, newHexagonBehaviour, newHexagonData);
+        var newHexagon = new TBSHexagon(id, physicsX, physicsZ);
         Debug.Log($"[CreateHexagon] A new Hexagon has been added (ID: {id}, CellX: {cellX}, CellY: {cellY}, PhysicsX: {physicsX}, PhysicsZ: {physicsZ}).");
 
         List<TBSHexagon> list = null;
@@ -144,25 +150,6 @@ public static class TBSMap
         }
 
         _hexagons[cellY].Add(newHexagon);
-    }
-
-    private static TBSHexagonData GetHexagonData(int id)
-    {
-        if (_data == null)
-        {
-            return null;
-        }
-
-        var hexagons = _data.Hexagons;
-        while (hexagons.MoveNext())
-        {
-            if (hexagons.Current.ID == id)
-            {
-                return hexagons.Current;
-            }
-        }
-
-        return _data.DefaultHexagon;
     }
 
     private static List<TBSHexagon> GetHexagons()

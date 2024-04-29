@@ -18,6 +18,8 @@ public class TBSBoostrap
         TBSProvincies.Init(SettingsData.ProvinciesData, SettingsData.BuildingManagerData);
         TBSRegions.Init(SettingsData.RegionsData);
 
+        TBSMap.MakeHexagonsVisual(SettingsData.ProvinciesData);
+
         TBSCountries.Init(SettingsData);
 
         TBSTimer.Init(SettingsData.TimerData);

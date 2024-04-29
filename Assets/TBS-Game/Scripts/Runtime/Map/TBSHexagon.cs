@@ -184,16 +184,18 @@ public class TBSAroundHexagons
 
 public class TBSHexagon
 {
+    private float _physicsX;
+    private float _physicsZ;
+
     public int ID { get; private set; }
     public TBSHexagonBehaviour Behaviour { get; private set; }
-    public TBSHexagonData Data { get; private set; }
     public TBSAroundHexagons AroundHexagons { get; private set; }
 
-    public TBSHexagon(int id, TBSHexagonBehaviour behaviour, TBSHexagonData data)
+    public TBSHexagon(int id, float physicsX, float physicsZ)
     {
         ID = id;
-        Behaviour = behaviour;
-        Data = data;
+        _physicsX = physicsX;
+        _physicsZ = physicsZ;
     }
 
     public void SetAroundHexagons(TBSAroundHexagons aroundHexagons)
@@ -204,5 +206,11 @@ public class TBSHexagon
     public void SetSelect(bool isSelect)
     {
         Behaviour.SetSelect(isSelect);
+    }
+
+    public void Instantiate(TBSHexagonBehaviour prefab, TBSMapBehaviour mapBehaviour)
+    {
+        Behaviour = mapBehaviour.MakeHexagon(prefab);
+        Behaviour.Init(ID, _physicsX, _physicsZ);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TBSProvince
 {
     public int ID { get; private set; }
+    public TBSProvinceType Type { get; private set; }
 
     public TBSBuildingManager BuildingManager { get; private set; } = new();
 
@@ -17,6 +18,8 @@ public class TBSProvince
 
     public void PostInit(TBSProvinceData data)
     {
+        Type = data.Type;
+
         var buildingsIt = data.Buildings;
         while (buildingsIt.MoveNext())
         {
