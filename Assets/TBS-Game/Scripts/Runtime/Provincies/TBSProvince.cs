@@ -1,3 +1,7 @@
+
+
+using UnityEngine;
+
 public class TBSProvince
 {
     public int ID { get; private set; }
@@ -9,6 +13,16 @@ public class TBSProvince
         ID = id;
 
         BuildingManager.Init(buildingManagerData);
+    }
+
+    public void PostInit(TBSProvinceData data)
+    {
+        var buildingsIt = data.Buildings;
+        while (buildingsIt.MoveNext())
+        {
+            BuildingManager.AddBuilding(buildingsIt.Current);
+            Debug.Log($"Added a building: Province: {ID}, ID: {buildingsIt.Current}");
+        }
     }
 
     public void UpdateResources(TBSResources resources)

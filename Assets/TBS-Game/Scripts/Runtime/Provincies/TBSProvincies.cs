@@ -5,13 +5,24 @@ public static class TBSProvincies
 {
     private static List<TBSProvince> _provincies = new();
 
-    public static void Init(TBSBuildingManagerData buildingManagerData)
+    public static void Init(TBSProvinciesData provinciesData, TBSBuildingManagerData buildingManagerData)
     {
         var hexagons = TBSMap.Hexagons;
         foreach (var hexagon in hexagons)
         {
-            AddProvince(new TBSProvince(hexagon.ID, buildingManagerData));
+            var province = new TBSProvince(hexagon.ID, buildingManagerData);
+            AddProvince(province);
             Debug.Log($"A province has been added (ID: {hexagon.ID})");
+        }
+
+        var provinciesIt = provinciesData.Provincies;
+        while (provinciesIt.MoveNext())
+        {
+            var province = GetProvince(provinciesIt.Current.ID);
+            if (province != null)
+            {
+                province.PostInit(provinciesIt.Current);
+            }
         }
     }
 

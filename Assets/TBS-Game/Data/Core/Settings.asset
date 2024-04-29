@@ -18,3 +18,4 @@ MonoBehaviour:
   _buildingManagerData: {fileID: 11400000, guid: 9a6a17400b58f3040988fbbe30bc74ab, type: 2}
   _countriesData: {fileID: 11400000, guid: 50011d350e168784ca8d7a07a61b5db7, type: 2}
   _regionsData: {fileID: 11400000, guid: 185cf85a7491cd24e917b07f1ef3de8f, type: 2}
+  _provinciesData: {fileID: 11400000, guid: 0f50fc7d8bfc5894c970e5b8efd39783, type: 2}

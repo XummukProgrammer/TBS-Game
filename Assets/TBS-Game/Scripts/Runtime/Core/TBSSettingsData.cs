@@ -9,6 +9,7 @@ public class TBSSettingsData : ScriptableObject
     [SerializeField] private TBSBuildingManagerData _buildingManagerData;
     [SerializeField] private TBSCountriesData _countriesData;
     [SerializeField] private TBSRegionsData _regionsData;
+    [SerializeField] private TBSProvinciesData _provinciesData;
 
     public TBSMapData MapData => _mapData;
     public TBSResourcesData ResourcesData => _resourcesData;
@@ -16,4 +17,5 @@ public class TBSSettingsData : ScriptableObject
     public TBSBuildingManagerData BuildingManagerData => _buildingManagerData;
     public TBSCountriesData CountriesData => _countriesData;
     public TBSRegionsData RegionsData => _regionsData;
+    public TBSProvinciesData ProvinciesData => _provinciesData;
 }

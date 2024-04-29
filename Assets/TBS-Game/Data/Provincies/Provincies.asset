@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04658f38ff09fbc469e5ee3a07ed61bb, type: 3}
+  m_Name: Provincies
+  m_EditorClassIdentifier: 
+  _provincies:
+  - {fileID: 11400000, guid: ee4838597bcf48c4a96ff630ff3dda2c, type: 2}
+  - {fileID: 11400000, guid: 4d67b6704587cbe48ac10f3c2291c3aa, type: 2}
