@@ -5,10 +5,10 @@ using UnityEngine;
 public class TBSHexagonModeTransform
 {
     [SerializeField] private TBSProvinceVisualMode _mode;
-    [SerializeField] private Transform _transform;
+    [SerializeField] private MeshRenderer _meshRenderer;
 
     public TBSProvinceVisualMode Mode => _mode;
-    public Transform Transform => _transform;
+    public MeshRenderer MeshRenderer => _meshRenderer;
 }
 
 public class TBSHexagonBehaviour : MonoBehaviour
@@ -17,7 +17,7 @@ public class TBSHexagonBehaviour : MonoBehaviour
 
     [SerializeField] private Transform _selectTransform;
 
-    private Transform _activeModeTransform;
+    private MeshRenderer _activeModeMeshRenderer;
 
     public int ID { get; private set; }
 
@@ -31,16 +31,24 @@ public class TBSHexagonBehaviour : MonoBehaviour
 
     public void SetMode(TBSProvinceVisualMode mode)
     {
-        if (_activeModeTransform != null)
+        if (_activeModeMeshRenderer != null)
         {
-            _activeModeTransform.gameObject.SetActive(false);
+            _activeModeMeshRenderer.gameObject.SetActive(false);
         }
 
         var modeTransform = GetModeTransform(mode);
         if (modeTransform != null)
         {
-            _activeModeTransform = modeTransform.Transform;
-            _activeModeTransform.gameObject.SetActive(true);
+            _activeModeMeshRenderer = modeTransform.MeshRenderer;
+            _activeModeMeshRenderer.gameObject.SetActive(true);
+        }
+    }
+
+    public void SetColor(Color color)
+    {
+        if (_activeModeMeshRenderer != null)
+        {
+            _activeModeMeshRenderer.material.color = color;
         }
     }
 

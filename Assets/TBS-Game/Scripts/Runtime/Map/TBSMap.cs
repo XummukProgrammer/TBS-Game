@@ -130,6 +130,42 @@ public static class TBSMap
         return (-1, -1);
     }
 
+    public static void ShowRelief()
+    {
+        for (int y = 0; y < _hexagons.Count; y++)
+        {
+            for (int x = 0; x < _hexagons[y].Count; x++)
+            {
+                _hexagons[y][x].SetMode(TBSProvinceVisualMode.Relief);
+            }
+        }
+    }
+
+    public static void ShowCountries()
+    {
+        var countriesIt = TBSCountries.Countries;
+        while (countriesIt.MoveNext())
+        {
+            var country = countriesIt.Current;
+            var regionsIt = country.Regions;
+            while (regionsIt.MoveNext())
+            {
+                var region = regionsIt.Current;
+                var provinciesIt = region.Provincies;
+                while (provinciesIt.MoveNext())
+                {
+                    var province = provinciesIt.Current;
+                    var hexagon = GetHexagonByID(province.ID); // TODO: save a hexagon in a province
+                    if (hexagon != null)
+                    {
+                        hexagon.SetMode(TBSProvinceVisualMode.Countries);
+                        hexagon.SetColor(country.Data.Color);
+                    }
+                }
+            }
+        }
+    }
+
     private static void CreateHexagon(int id, int cellX, int cellY, bool isEvenX, int hexagonSize, float hexagonXOffset, float hexagonYOffset)
     {
         float physicsX = hexagonSize * cellX - ((cellX == 0) ? 0 : (cellX * hexagonXOffset));

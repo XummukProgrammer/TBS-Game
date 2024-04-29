@@ -23,6 +23,8 @@ public class TBSBoostrap
         TBSCountries.Init(SettingsData);
 
         TBSTimer.Init(SettingsData.TimerData);
+
+        TBSMap.ShowCountries();
     }
 
     public virtual void Destroy() 

@@ -4,6 +4,8 @@ public static class TBSCountries
 {
     private static List<TBSCountry> _countries = new();
 
+    public static List<TBSCountry>.Enumerator Countries => _countries.GetEnumerator();
+
     public static void Init(TBSSettingsData settingsData)
     {
         var countries = settingsData.CountriesData.Countries;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class TBSAroundHexagons
 {
@@ -212,5 +213,15 @@ public class TBSHexagon
     {
         Behaviour = mapBehaviour.MakeHexagon(prefab);
         Behaviour.Init(ID, _physicsX, _physicsZ);
+    }
+
+    public void SetMode(TBSProvinceVisualMode mode)
+    {
+        Behaviour.SetMode(mode);
+    }
+
+    public void SetColor(Color color)
+    {
+        Behaviour.SetColor(color);
     }
 }

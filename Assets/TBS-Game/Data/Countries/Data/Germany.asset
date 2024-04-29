@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 2
   _regionsIDs: 01000000
+  _color: {r: 0.3962264, g: 0.36445352, b: 0.36445352, a: 0}
