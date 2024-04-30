@@ -35,7 +35,21 @@ public class TBSApplicationBehaviour : MonoBehaviour
 
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Mouse0))
+        TryGetSelectedHexagon();
+
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            TBSCheatsWindow.Toggle();
+        }
+
+        TBSCheatsWindow.OnUpdate();
+
+        TBSTimer.OnUpdate();
+    }
+
+    private void TryGetSelectedHexagon()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Ray MyRay;
             RaycastHit hit;
@@ -47,16 +61,10 @@ public class TBSApplicationBehaviour : MonoBehaviour
                     var hexagon = TBSMap.GetHexagonByID(hexagonBehaviour.ID);
                     if (hexagon != null)
                     {
-                        var around = hexagon.AroundHexagons.Horizontal;
-                        foreach (var hex in around)
-                        {
-                            hex.SetSelect(true);
-                        }
+                        TBSContextComponent.SelectedHexagon = hexagon;
                     }
                 }
             }
-        }*/
-
-        TBSTimer.OnUpdate();
+        }
     }
 }

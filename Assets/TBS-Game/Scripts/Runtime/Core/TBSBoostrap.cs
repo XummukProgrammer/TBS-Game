@@ -11,6 +11,8 @@ public class TBSBoostrap
 
     public virtual void Setup() 
     {
+        TBSContextComponent.ProvinciesData = SettingsData.ProvinciesData;
+
         TBSMap.Init(LinksBehaviour.MapBehaviour, SettingsData.MapData);
         TBSMap.GenerateHexagons();
         TBSMap.InitHexagons();
@@ -25,6 +27,9 @@ public class TBSBoostrap
         TBSTimer.Init(SettingsData.TimerData);
 
         TBSMap.ShowCountries();
+
+        TBSCheatsWindow.Init(LinksBehaviour.CheatsWindowBehaviour);
+        TBSProvinceCheatWindow.Init(LinksBehaviour.ProvinceCheatWindowBehaviour);
     }
 
     public virtual void Destroy() 

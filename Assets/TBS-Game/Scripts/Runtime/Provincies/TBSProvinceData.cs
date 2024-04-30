@@ -12,4 +12,11 @@ public class TBSProvinceData : ScriptableObject
     public int ID => _id;
     public TBSProvinceType Type => _type;
     public List<TBSBuildingID>.Enumerator Buildings => _buildings.ToList().GetEnumerator();
+
+    public void Init(int id, TBSProvinceType type)
+    {
+        _id = id; 
+        _type = type;
+        _buildings = new TBSBuildingID[1];
+    }
 }

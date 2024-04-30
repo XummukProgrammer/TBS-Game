@@ -28,4 +28,9 @@ public class TBSProvinciesData : ScriptableObject
     {
         return _visuals.ToList().Find(visual => visual.Type == type);
     }
+
+    public void AddProvice(TBSProvinceData province)
+    {
+        TBSArraysHelper.AddValueInArray(ref _provincies, province);
+    }
 }

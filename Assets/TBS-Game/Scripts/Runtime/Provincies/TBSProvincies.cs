@@ -15,13 +15,12 @@ public static class TBSProvincies
             Debug.Log($"A province has been added (ID: {hexagon.ID})");
         }
 
-        var provinciesIt = provinciesData.Provincies;
-        while (provinciesIt.MoveNext())
+        foreach (var province in _provincies)
         {
-            var province = GetProvince(provinciesIt.Current.ID);
-            if (province != null)
+            var provinceData = provinciesData.GetProvince(province.ID);
+            if (provinceData != null)
             {
-                province.PostInit(provinciesIt.Current);
+                province.PostInit(provinceData);
             }
         }
     }

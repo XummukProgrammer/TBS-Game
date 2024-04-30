@@ -6,6 +6,7 @@ public class TBSProvince
 {
     public int ID { get; private set; }
     public TBSProvinceType Type { get; private set; }
+    public bool IsDefault { get; private set; }
 
     public TBSBuildingManager BuildingManager { get; private set; } = new();
 
@@ -19,6 +20,7 @@ public class TBSProvince
     public void PostInit(TBSProvinceData data)
     {
         Type = data.Type;
+        IsDefault = data.ID == -1;
 
         var buildingsIt = data.Buildings;
         while (buildingsIt.MoveNext())
