@@ -19,4 +19,9 @@ public class TBSProvinceData : ScriptableObject
         _type = type;
         _buildings = new TBSBuildingID[1];
     }
+
+    public void UpdateParams(TBSProvinceType type)
+    {
+        _type = type;
+    }
 }

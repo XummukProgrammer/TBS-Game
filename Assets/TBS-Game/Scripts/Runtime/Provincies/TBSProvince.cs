@@ -1,5 +1,6 @@
 
 
+using UnityEditor;
 using UnityEngine;
 
 public class TBSProvince
@@ -33,5 +34,21 @@ public class TBSProvince
     public void UpdateResources(TBSResources resources)
     {
         BuildingManager.UpdateResources(resources);
+    }
+
+    public void Update(TBSProvinceType type)
+    {
+        Type = type;
+
+        var provinceData = TBSContextComponent.ProvinciesData.GetProvince(ID);
+        if (provinceData != null)
+        {
+            provinceData.UpdateParams(Type);
+            EditorUtility.SetDirty(provinceData);
+
+            AssetDatabase.SaveAssets();
+        }
+
+        TBSMap.UpdateHexagonVisual(this);
     }
 }

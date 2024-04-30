@@ -43,13 +43,18 @@ public static class TBSProvinceCheatWindow
         UpdateBehaviour();
     }
 
+    public static void OnUpdateClicked()
+    {
+        _province.Update(_behaviour.ProvinceType);
+    }
+
     private static void UpdateBehaviour()
     {
         if (_behaviour != null)
         {
             _behaviour.SetID(_province.ID);
-            _behaviour.SetType(_province.Type);
-            _behaviour.SetIsEnableCreateButton(_province.IsDefault);
+            _behaviour.InitTypeDropdown(_province.Type, TBSContextComponent.ProvinciesData.ProvinciesTypes.ToArray());
+            _behaviour.SetTransform(_province.IsDefault ? TBSProvinceCheatWindowTransformType.Create : TBSProvinceCheatWindowTransformType.Update);
         }
     }
 }

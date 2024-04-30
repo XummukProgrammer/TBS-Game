@@ -57,6 +57,19 @@ public static class TBSMap
         }
     }
 
+    public static void UpdateHexagonVisual(TBSProvince province)
+    {
+        var visual = TBSContextComponent.ProvinciesData.GetVisual(province.Type);
+        if (visual != null)
+        {
+            var hexagon = GetHexagonByID(province.ID);
+            if (hexagon != null)
+            {
+                hexagon.Reinstantiate(visual.Prefab, _behaviour);
+            }
+        }
+    }
+
     public static void InitHexagons()
     {
         for (int y = 0; y < _hexagons.Count; y++)

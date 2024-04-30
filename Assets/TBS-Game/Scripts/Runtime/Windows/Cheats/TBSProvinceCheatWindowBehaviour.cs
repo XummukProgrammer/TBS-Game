@@ -1,11 +1,24 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+
+public enum TBSProvinceCheatWindowTransformType
+{
+    Update,
+    Create
+}
 
 public class TBSProvinceCheatWindowBehaviour : MonoBehaviour
 {
     [SerializeField] private TMPro.TMP_Text _idText;
-    [SerializeField] private TMPro.TMP_Text _typeText;
     [SerializeField] private Button _createButton;
+    [SerializeField] private Button _updateButton;
+    [SerializeField] private TMPro.TMP_Dropdown _typeDropdown;
+
+    [SerializeField] private Transform _updateTransform;
+    [SerializeField] private Transform _createTransform;
+
+    public TBSProvinceType ProvinceType => GetProvinceType();
 
     public void SetID(int id)
     {
@@ -15,19 +28,41 @@ public class TBSProvinceCheatWindowBehaviour : MonoBehaviour
         }
     }
 
-    public void SetType(TBSProvinceType type)
+    public void InitTypeDropdown(TBSProvinceType currType, TBSProvinceType[] types)
     {
-        if (_typeText != null)
+        if (_typeDropdown != null)
         {
-            _typeText.text = $"Type: {type}";
+            _typeDropdown.ClearOptions();
+
+            int index = 0;
+            foreach (var type in types)
+            {
+                _typeDropdown.options.Add(new TMPro.TMP_Dropdown.OptionData(type.ToString()));
+                
+                if (type == currType)
+                {
+                    _typeDropdown.value = index;
+                }
+                
+                ++index;
+            }
         }
     }
 
-    public void SetIsEnableCreateButton(bool isEnable)
+    public void SetTransform(TBSProvinceCheatWindowTransformType type)
     {
-        if (_createButton != null)
+        _updateTransform.gameObject.SetActive(false);
+        _createTransform.gameObject.SetActive(false);
+
+        switch (type)
         {
-            _createButton.gameObject.SetActive(isEnable);
+            case TBSProvinceCheatWindowTransformType.Update:
+                _updateTransform.gameObject.SetActive(true);
+                break;
+
+            case TBSProvinceCheatWindowTransformType.Create:
+                _createTransform.gameObject.SetActive(true);
+                break;
         }
     }
 
@@ -37,6 +72,11 @@ public class TBSProvinceCheatWindowBehaviour : MonoBehaviour
         {
             _createButton.onClick.AddListener(OnCreateClicked);
         }   
+
+        if (_updateButton != null)
+        {
+            _updateButton.onClick.AddListener(OnUpdateClicked);
+        }
     }
 
     private void OnDisable()
@@ -45,10 +85,32 @@ public class TBSProvinceCheatWindowBehaviour : MonoBehaviour
         {
             _createButton.onClick.RemoveListener(OnCreateClicked);
         }
+
+        if (_updateButton != null)
+        {
+            _updateButton.onClick.RemoveListener(OnUpdateClicked);
+        }
     }
 
     private void OnCreateClicked()
     {
         TBSProvinceCheatWindow.OnCreateClicked();
+    }
+
+    private void OnUpdateClicked()
+    {
+        TBSProvinceCheatWindow.OnUpdateClicked();
+    }
+
+    private TBSProvinceType GetProvinceType()
+    {
+        if (_typeDropdown != null)
+        {
+            var option = _typeDropdown.options[_typeDropdown.value];
+            TBSProvinceType type;
+            Enum.TryParse(option.text, out type);
+            return type;
+        }
+        return TBSProvinceType.Water;
     }
 }

@@ -215,6 +215,12 @@ public class TBSHexagon
         Behaviour.Init(ID, _physicsX, _physicsZ);
     }
 
+    public void Reinstantiate(TBSHexagonBehaviour prefab, TBSMapBehaviour mapBehaviour)
+    {
+        GameObject.Destroy(Behaviour.gameObject);
+        Instantiate(prefab, mapBehaviour);
+    }
+
     public void SetMode(TBSProvinceVisualMode mode)
     {
         Behaviour.SetMode(mode);
