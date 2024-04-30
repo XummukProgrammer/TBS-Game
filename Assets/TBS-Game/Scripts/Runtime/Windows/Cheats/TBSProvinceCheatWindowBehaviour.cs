@@ -18,7 +18,7 @@ public class TBSProvinceCheatWindowBehaviour : MonoBehaviour
     [SerializeField] private Transform _updateTransform;
     [SerializeField] private Transform _createTransform;
 
-    public TBSProvinceType ProvinceType => GetProvinceType();
+    public string ProvinceType => GetProvinceType();
 
     public void SetID(int id)
     {
@@ -28,7 +28,7 @@ public class TBSProvinceCheatWindowBehaviour : MonoBehaviour
         }
     }
 
-    public void InitTypeDropdown(TBSProvinceType currType, TBSProvinceType[] types)
+    public void InitTypeDropdown(string currType, string[] types)
     {
         if (_typeDropdown != null)
         {
@@ -37,7 +37,7 @@ public class TBSProvinceCheatWindowBehaviour : MonoBehaviour
             int index = 0;
             foreach (var type in types)
             {
-                _typeDropdown.options.Add(new TMPro.TMP_Dropdown.OptionData(type.ToString()));
+                _typeDropdown.options.Add(new TMPro.TMP_Dropdown.OptionData(type));
                 
                 if (type == currType)
                 {
@@ -102,15 +102,12 @@ public class TBSProvinceCheatWindowBehaviour : MonoBehaviour
         TBSProvinceCheatWindow.OnUpdateClicked();
     }
 
-    private TBSProvinceType GetProvinceType()
+    private string GetProvinceType()
     {
         if (_typeDropdown != null)
         {
-            var option = _typeDropdown.options[_typeDropdown.value];
-            TBSProvinceType type;
-            Enum.TryParse(option.text, out type);
-            return type;
+            return _typeDropdown.options[_typeDropdown.value].text;
         }
-        return TBSProvinceType.Water;
+        return null;
     }
 }

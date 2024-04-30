@@ -6,21 +6,21 @@ using UnityEngine;
 public class TBSProvinceData : ScriptableObject
 {
     [SerializeField] private int _id;
-    [SerializeField] private TBSProvinceType _type;
+    [SerializeField] private string _type;
     [SerializeField] private TBSBuildingID[] _buildings;
 
     public int ID => _id;
-    public TBSProvinceType Type => _type;
+    public string Type => _type;
     public List<TBSBuildingID>.Enumerator Buildings => _buildings.ToList().GetEnumerator();
 
-    public void Init(int id, TBSProvinceType type)
+    public void Init(int id, string type)
     {
         _id = id; 
         _type = type;
         _buildings = new TBSBuildingID[1];
     }
 
-    public void UpdateParams(TBSProvinceType type)
+    public void UpdateParams(string type)
     {
         _type = type;
     }

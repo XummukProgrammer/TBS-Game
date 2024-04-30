@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf5ce9f9dcdf8544b3a11e119763e4c, type: 3}
   m_Name: City
   m_EditorClassIdentifier: 
-  _type: 4
+  _type: City
   _prefab: {fileID: 2496733426185152616, guid: 2bc4c7f59a9ed9f40b01eb3866e96202, type: 3}

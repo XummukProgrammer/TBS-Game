@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   _id: -1
-  _type: 0
+  _type: Water
   _buildings: 

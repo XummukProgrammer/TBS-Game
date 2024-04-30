@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   _id: 1
-  _type: 1
+  _type: Earth
   _buildings: 

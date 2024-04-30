@@ -6,7 +6,7 @@ using UnityEngine;
 public class TBSProvince
 {
     public int ID { get; private set; }
-    public TBSProvinceType Type { get; private set; }
+    public string Type { get; private set; }
     public bool IsDefault { get; private set; }
 
     public TBSBuildingManager BuildingManager { get; private set; } = new();
@@ -36,7 +36,7 @@ public class TBSProvince
         BuildingManager.UpdateResources(resources);
     }
 
-    public void Update(TBSProvinceType type)
+    public void Update(string type)
     {
         Type = type;
 

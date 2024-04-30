@@ -13,7 +13,7 @@ public class TBSProvinciesData : ScriptableObject
 
     public List<TBSProvinceData>.Enumerator Provincies => _provincies.ToList().GetEnumerator();
     public List<TBSProvinceVisualData>.Enumerator Visuals => _visuals.ToList().GetEnumerator();
-    public List<TBSProvinceType> ProvinciesTypes => GetProvinciesTypes();
+    public List<string> ProvinciesTypes => GetProvinciesTypes();
 
     public TBSProvinceData GetProvince(int id)
     {
@@ -25,7 +25,7 @@ public class TBSProvinciesData : ScriptableObject
         return _defaultProvince;
     }
 
-    public TBSProvinceVisualData GetVisual(TBSProvinceType type)
+    public TBSProvinceVisualData GetVisual(string type)
     {
         return _visuals.ToList().Find(visual => visual.Type == type);
     }
@@ -35,9 +35,9 @@ public class TBSProvinciesData : ScriptableObject
         TBSArraysHelper.AddValueInArray(ref _provincies, province);
     }
 
-    private List<TBSProvinceType> GetProvinciesTypes()
+    private List<string> GetProvinciesTypes()
     {
-        var types = new List<TBSProvinceType>();
+        var types = new List<string>();
 
         foreach (var visual in _visuals)
         {
