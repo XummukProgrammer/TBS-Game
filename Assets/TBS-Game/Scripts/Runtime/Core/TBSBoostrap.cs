@@ -26,7 +26,7 @@ public class TBSBoostrap
 
         TBSTimer.Init(SettingsData.TimerData);
 
-        //TBSMap.ShowCountries();
+        TBSMap.ShowCountries();
 
         TBSCheatsWindow.Init(LinksBehaviour.CheatsWindowBehaviour);
         TBSProvinceCheatWindow.Init(LinksBehaviour.ProvinceCheatWindowBehaviour);
