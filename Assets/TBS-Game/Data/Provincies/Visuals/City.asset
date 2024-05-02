@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: City
   m_EditorClassIdentifier: 
   _type: City
-  _prefab: {fileID: 2496733426185152616, guid: 2bc4c7f59a9ed9f40b01eb3866e96202, type: 3}
+  _prefab: {fileID: 2496733426185152616, guid: f81f049c5c7f8cf4fb91417e7a02f83d, type: 3}

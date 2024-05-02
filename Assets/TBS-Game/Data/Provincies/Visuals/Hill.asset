@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Hill
   m_EditorClassIdentifier: 
   _type: Hill
-  _prefab: {fileID: 2496733426185152616, guid: 2bc4c7f59a9ed9f40b01eb3866e96202, type: 3}
+  _prefab: {fileID: 2496733426185152616, guid: e7ec1887d8f93334390637d3d066df99, type: 3}

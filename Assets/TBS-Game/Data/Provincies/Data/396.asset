@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bf5ce9f9dcdf8544b3a11e119763e4c, type: 3}
-  m_Name: Earth
+  m_Script: {fileID: 11500000, guid: 44a50a67f09360746994d1263c31761e, type: 3}
+  m_Name: 396
   m_EditorClassIdentifier: 
-  _type: Earth
-  _prefab: {fileID: 2496733426185152616, guid: 2bc4c7f59a9ed9f40b01eb3866e96202, type: 3}
+  _id: 396
+  _type: Beach
+  _buildings: 00000000
